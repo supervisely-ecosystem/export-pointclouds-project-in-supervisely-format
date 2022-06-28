@@ -44,5 +44,5 @@ Export pointclouds project in Supervisely format. It is possible to download bot
 
 2. Result archive will be available for download by link at `Tasks` page or from `Team Files` by the following path:
 
-* `Team Files`->`Export pointclouds in Supervisely format`->`<task_id>_<projectId>_<projectName>.tar`
+* `Team Files`->`Export pointclouds project in Supervisely format`->`<task_id>_<projectId>_<projectName>.tar`
 <img src="https://user-images.githubusercontent.com/48913536/176164028-3e535f5a-a31a-4b24-b55c-955e2fad0f2a.png"/>
