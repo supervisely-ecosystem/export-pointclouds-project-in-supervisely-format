@@ -4,8 +4,8 @@
 # Export Pointclouds Project in Supervisely format
 
 <p align="center">
-  <a href="#Overview">Overview</a>
-  <a href="#How-To-Run">How To Run</a>
+  <a href="#Overview">Overview</a> •
+  <a href="#How-To-Run">How To Run</a> •
   <a href="#How-To-Use">How To Use</a>
 </p>
 
@@ -24,12 +24,11 @@
 
 Export pointclouds project in Supervisely format. It is possible to download both pointclouds and annotations or only annotations.
 
-
 # How To Run 
 
-1. Add  [Export pointclouds project in Supervisely format](https://ecosystem.supervise.ly/apps/export-pointclouds-project-in-supervisely-format)
+1. Add [Export pointclouds project in Supervisely format](https://ecosystem.supervise.ly/apps/export-pointclouds-project-in-supervisely-format)
 
-2. Run app from the ecosystem or context menu of **Pointclous Project** -> `Download via app` -> `Export pointclouds project in Supervisely format`
+2. Run app from the ecosystem or context menu of **Pointclouds Project** -> `Download via app` -> `Export pointclouds project in Supervisely format`
 
 <img src="https://user-images.githubusercontent.com/48913536/176165104-e8b38e55-fb9a-4843-8d7a-ac3760732ef9.png"/>
 
