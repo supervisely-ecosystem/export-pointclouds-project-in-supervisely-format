@@ -14,7 +14,7 @@
   "task_location": "workspace_tasks",
   "isolate": true,
   "headless": true,
-  "icon": "https://i.imgur.com/g0pZjPk.png",
+  "icon": "https://user-images.githubusercontent.com/48913536/176163970-98999ba8-5922-4fc4-95c3-c9dbb19a057c.png",
   "icon_cover": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
@@ -23,5 +23,5 @@
     ],
     "context_root": "Download as"
   },
-  "poster": ""
+  "poster": "https://user-images.githubusercontent.com/48913536/176164502-ddd0d34b-faf7-4e49-9afa-3098935e6f5c.jpg"
 }
