@@ -1,1 +1,1 @@
-# -export-pointclouds-project-in-supervisely-format
+# export-pointclouds-project-in-supervisely-format
