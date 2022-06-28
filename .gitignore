@@ -1,0 +1,4 @@
+venv
+secret_debug.env
+src/debug
+.idea

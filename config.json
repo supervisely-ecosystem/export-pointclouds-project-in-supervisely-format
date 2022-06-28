@@ -1,0 +1,26 @@
+{
+  "name": "Export pointclouds project in Supervisely format",
+  "type": "app",
+  "categories": [
+    "pointclouds",
+    "export"
+  ],
+  "description": "Export pointclouds project and prepares downloadable tar archive",
+  "docker_image": "supervisely/base-py-sdk:6.25.0",
+  "instance_version": "6.4.57",
+  "main_script": "src/main.py",
+  "modal_template": "src/modal.html",
+  "modal_template_state": {"items": true},
+  "task_location": "workspace_tasks",
+  "isolate": true,
+  "headless": true,
+  "icon": "",
+  "icon_background": "#FFFFFF",
+  "context_menu": {
+    "target": [
+      "point_cloud_project"
+    ],
+    "context_root": "Download as"
+  },
+  "poster": ""
+}
