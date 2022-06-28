@@ -1,5 +1,5 @@
 <div align="center" markdown>
-<img src="https://user-images.githubusercontent.com/48913536/176164502-ddd0d34b-faf7-4e49-9afa-3098935e6f5c.jpg">
+<img src="https://user-images.githubusercontent.com/48913536/176174376-7175ed94-2477-43a3-8f0c-9572ca938550.jpg">
 
 # Export Pointclouds Project in Supervisely format
 
