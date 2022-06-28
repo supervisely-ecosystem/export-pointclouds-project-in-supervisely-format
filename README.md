@@ -26,13 +26,11 @@ Export pointclouds project in Supervisely format. It is possible to download bot
 
 # How To Run 
 
-1. Add [Export pointclouds project in Supervisely format](https://ecosystem.supervise.ly/apps/export-pointclouds-project-in-supervisely-format)
-
-2. Run app from the ecosystem or context menu of **Pointclouds Project** -> `Download via app` -> `Export pointclouds project in Supervisely format`
+1. Run app from the ecosystem or context menu of **Pointclouds Project** -> `Download via app` -> `Export pointclouds project in Supervisely format`
 
 <img src="https://user-images.githubusercontent.com/48913536/176165104-e8b38e55-fb9a-4843-8d7a-ac3760732ef9.png"/>
 
-3. Define export settings in modal window and press the **Run** button
+2. Define export settings in modal window and press the **Run** button
 
 <div align="center" markdown>
 <img src="https://user-images.githubusercontent.com/48913536/176164020-a2e940ea-8da6-4dc7-a62e-903a8529f921.png" width="650"/>
