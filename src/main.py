@@ -16,7 +16,7 @@ def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, cont
     remote_archive_path = f"/{g.RESULT_DIR_NAME}/{archive_name}"
 
     sly.download_pointcloud_project(api=api, project_id=g.PROJECT_ID, dest_dir=result_dir, dataset_ids=None,
-                               download_items=g.DOWNLOAD_ITEMS, log_progress=True)
+                               download_items=g.DOWNLOAD_ITEMS, batch_size=1, log_progress=True)
 
     sly.fs.archive_directory(result_archive_path, result_archive)
     app_logger.info("Result directory is archived")
