@@ -13,7 +13,8 @@ def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, cont
     result_archive_path = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME)
     archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar.gz"
     result_archive = os.path.join(g.my_app.data_dir, archive_name)
-    remote_archive_path = f"/{g.RESULT_DIR_NAME}/{archive_name}"
+    remote_archive_path = os.path.join(
+        sly.team_files.RECOMMENDED_EXPORT_PATH, f"{g.RESULT_DIR_NAME}/{archive_name}")
 
     sly.download_pointcloud_project(api=api, project_id=g.PROJECT_ID, dest_dir=result_dir, dataset_ids=None,
                                download_items=g.DOWNLOAD_ITEMS, batch_size=1, log_progress=True)
