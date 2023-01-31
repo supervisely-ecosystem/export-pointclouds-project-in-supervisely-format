@@ -38,6 +38,8 @@ class MyExport(sly.app.Export):
         sly.fs.archive_directory(result_dir, result_archive)
         sly.logger.info("Result directory is archived")
 
+        return result_archive
+
 
 app = MyExport()
 app.run()
