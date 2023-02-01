@@ -6,7 +6,7 @@
     "export"
   ],
   "description": "Export pointclouds project and prepares downloadable tar archive",
-  "docker_image": "supervisely/base-py-sdk:6.68.112",
+  "docker_image": "supervisely/base-py-sdk:6.69.19",
   "instance_version": "6.4.57",
   "main_script": "src/main.py",
   "modal_template": "src/modal.html",
@@ -20,9 +20,7 @@
   "icon_cover": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
-    "target": [
-      "point_cloud_project"
-    ],
+    "target": ["point_cloud_project", "point_cloud_dataset"],
     "context_root": "Download as"
   },
   "poster": "https://user-images.githubusercontent.com/106374579/182789054-65cb0f75-717a-49c8-a947-3fba71535250.png"
