@@ -1,29 +1,29 @@
 {
-  "name": "Export pointclouds project in Supervisely format",
-  "type": "app",
-  "categories": [
-    "pointclouds",
-    "export"
-  ],
-  "description": "Export pointclouds project and prepares downloadable tar archive",
-  "docker_image": "supervisely/base-py-sdk:6.72.55",
-  "instance_version": "6.4.57",
-  "main_script": "src/main.py",
-  "modal_template": "src/modal.html",
-  "modal_template_state": {
-    "items": "True"
-  },
-  "task_location": "workspace_tasks",
-  "isolate": true,
-  "headless": true,
-  "icon": "https://user-images.githubusercontent.com/48913536/176163970-98999ba8-5922-4fc4-95c3-c9dbb19a057c.png",
-  "icon_cover": true,
-  "icon_background": "#FFFFFF",
-  "context_menu": {
-    "target": [
-      "point_cloud_project"
+    "name": "Export pointclouds project in Supervisely format",
+    "type": "app",
+    "categories": [
+        "pointclouds",
+        "export"
     ],
-    "context_root": "Download as"
-  },
-  "poster": "https://user-images.githubusercontent.com/106374579/182789054-65cb0f75-717a-49c8-a947-3fba71535250.png"
+    "description": "Export pointclouds project and prepares downloadable tar archive",
+    "docker_image": "supervisely/import-export:0.0.1",
+    "instance_version": "6.4.57",
+    "main_script": "src/main.py",
+    "modal_template": "src/modal.html",
+    "modal_template_state": {
+        "items": "True"
+    },
+    "task_location": "workspace_tasks",
+    "isolate": true,
+    "headless": true,
+    "icon": "https://user-images.githubusercontent.com/48913536/176163970-98999ba8-5922-4fc4-95c3-c9dbb19a057c.png",
+    "icon_cover": true,
+    "icon_background": "#FFFFFF",
+    "context_menu": {
+        "target": [
+            "point_cloud_project"
+        ],
+        "context_root": "Download as"
+    },
+    "poster": "https://user-images.githubusercontent.com/106374579/182789054-65cb0f75-717a-49c8-a947-3fba71535250.png"
 }
