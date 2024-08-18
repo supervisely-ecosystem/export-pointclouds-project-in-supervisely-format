@@ -1,14 +1,14 @@
 import os
 import supervisely as sly
 import globals as g
-
+import workflow as w
 
 @g.my_app.callback("export-pointclouds-project-in-supervisely-format")
 @sly.timeit
 def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, context, state, app_logger):
     project = api.project.get_info_by_id(g.PROJECT_ID)
     project_name = project.name
-
+    w.workflow_input(api, project.id)
     result_dir = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME, project_name)
     result_archive_path = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME)
     archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar.gz"
@@ -36,7 +36,7 @@ def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, cont
                                 lambda m: _print_progress(m, upload_progress))
     app_logger.info("Uploaded to Team-Files: {!r}".format(file_info.storage_path))
     api.task.set_output_archive(task_id, file_info.id, archive_name, file_url=file_info.storage_path)
-
+    w.workflow_output(api, file_info)
     g.my_app.stop()
 
 
