@@ -11,11 +11,11 @@
 </p>
 
 
-[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervise.ly/apps/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format)
-[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervise.ly/slack)
+[![](https://img.shields.io/badge/supervisely-ecosystem-brightgreen)](https://ecosystem.supervisely.com/apps/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format)
+[![](https://img.shields.io/badge/slack-chat-green.svg?logo=slack)](https://supervisely.com/slack)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format)
-[![views](https://app.supervise.ly/img/badges/views/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format.png)](https://supervise.ly)
-[![runs](https://app.supervise.ly/img/badges/runs/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format.png)](https://supervise.ly)
+[![views](https://app.supervisely.com/img/badges/views/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format.png)](https://supervisely.com)
+[![runs](https://app.supervisely.com/img/badges/runs/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format.png)](https://supervisely.com)
 
 
 </div>
@@ -51,11 +51,11 @@ Export pointclouds project in Supervisely format. It is possible to download bot
 
 You can export these projects from ecosystem to see examples of project structure.
 
-- [Demo pointcloud project](https://ecosystem.supervise.ly/projects/demo-pointcloud-project)
+- [Demo pointcloud project](https://ecosystem.supervisely.com/projects/demo-pointcloud-project)
 
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/demo-pointcloud-project" src="https://user-images.githubusercontent.com/97401023/193617265-431aa000-ae57-4beb-aa9b-8ba31d755b74.png" width="300px" margin-bottom="10px"/>  
 
-- [Demo pointcloud project with labels](https://ecosystem.supervise.ly/projects/demo-pointcloud-project-annotated)
+- [Demo pointcloud project with labels](https://ecosystem.supervisely.com/projects/demo-pointcloud-project-annotated)
 
 <img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/demo-pointcloud-project-annotated" src="https://user-images.githubusercontent.com/97401023/193617359-2b929837-901e-4d98-92b8-cecb32d8f3af.png" width="300px" margin-bottom="10px" />
 
