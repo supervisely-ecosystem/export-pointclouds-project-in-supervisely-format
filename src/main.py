@@ -11,7 +11,7 @@ def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, cont
     w.workflow_input(api, project.id)
     result_dir = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME, project_name)
     result_archive_path = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME)
-    archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar.gz"
+    archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar"
     result_archive = os.path.join(g.my_app.data_dir, archive_name)
     remote_archive_path = os.path.join(
         sly.team_files.RECOMMENDED_EXPORT_PATH, f"{g.RESULT_DIR_NAME}/{archive_name}")
