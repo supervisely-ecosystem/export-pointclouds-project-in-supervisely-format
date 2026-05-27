@@ -1,4 +1,9 @@
-venv
+/*venv
 secret_debug.env
 src/debug
 .idea
+.python-version
+__pycache__
+*.pyc
+*.pyo
+*.pyd
