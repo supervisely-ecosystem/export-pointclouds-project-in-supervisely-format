@@ -58,6 +58,6 @@ Export Point Clouds project in Supervisely format. It is possible to download bo
 You can export these projects from ecosystem to see examples of project structure.
 
 <a href="https://ecosystem.supervisely.com/projects/demo-pointcloud-project" target="_blank"><img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/demo-pointcloud-project" src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/demo-pcd.png" width="300px" margin-bottom="10px"/>  </a>
-</br>
+
 <a href="https://ecosystem.supervisely.com/projects/demo-pointcloud-project-annotated" target="_blank"><img data-key="sly-module-link" data-module-slug="supervisely-ecosystem/demo-pointcloud-project-annotated" src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/demo-pcd-labels.png" width="300px" margin-bottom="10px" /> </a>
 
