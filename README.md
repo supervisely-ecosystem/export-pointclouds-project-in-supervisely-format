@@ -26,26 +26,32 @@ Export Point Clouds project in Supervisely format. It is possible to download bo
 
 # How To Run 
 
-1. Run app from the ecosystem or context menu of **Point Clouds Project** -> `Download` -> `Export Point Clouds Project in Supervisely Format`
+1. Run app from the ecosystem or context menu of **Point Clouds Project** → `Download` → `Export Point Clouds Project in Supervisely Format`
 
-<img src="https://user-images.githubusercontent.com/48913536/176165104-e8b38e55-fb9a-4843-8d7a-ac3760732ef9.png"/>
+<div align="center">
+<img src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/project-context-menu.png" width="90%"/>
+</div>
 
 2. Define export settings in modal window and press the **Run** button
 
 <div align="center" markdown>
-<img src="https://user-images.githubusercontent.com/48913536/176164020-a2e940ea-8da6-4dc7-a62e-903a8529f921.png" width="650"/>
+<img src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/modal.png" width="650"/>
 </div>
 
 # How To Use 
 
 1. Wait for the app to process your data, once done, a link for download will become available
 
-<img src="https://user-images.githubusercontent.com/48913536/176164021-5be40b84-842f-447f-93eb-99c5d9d1ab23.png"/>
+<div align="center">
+<img src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/tasks.png" width="90%"/>
+</div>
 
 2. Result archive will be available for download by link at `Tasks` page or from `Team Files` by the following path:
 
-* `Team Files`->`Export Point Clouds Project in Supervisely Format`->`<task_id>_<projectId>_<projectName>.tar`
-<img src="https://user-images.githubusercontent.com/48913536/176164028-3e535f5a-a31a-4b24-b55c-955e2fad0f2a.png"/>
+* `Team Files` → `tmp` → `supervisely` → `export` → `Export Point Clouds Project in Supervisely Format` → `<task_id>_<projectId>_<projectName>.tar`
+<div align="center">
+<img src="https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/team-files.png" width="90%"/>
+</div>
 
 # Demo Projects
 
