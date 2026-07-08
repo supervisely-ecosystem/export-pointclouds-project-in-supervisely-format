@@ -16,7 +16,7 @@
   "task_location": "workspace_tasks",
   "isolate": true,
   "headless": true,
-  "icon": "https://user-images.githubusercontent.com/48913536/176163970-98999ba8-5922-4fc4-95c3-c9dbb19a057c.png",
+  "icon": "https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/icon-export-pcd.jpg",
   "icon_cover": true,
   "icon_background": "#FFFFFF",
   "context_menu": {
@@ -25,5 +25,5 @@
     ],
     "context_root": "Download as"
   },
-  "poster": "https://user-images.githubusercontent.com/106374579/182789054-65cb0f75-717a-49c8-a947-3fba71535250.png"
+  "poster": "https://github.com/supervisely-ecosystem/export-pointclouds-project-in-supervisely-format/releases/download/v1.1.8/poster-export-pcd.jpg"
 }
