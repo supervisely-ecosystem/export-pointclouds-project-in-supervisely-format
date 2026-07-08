@@ -5,7 +5,7 @@
     "pointclouds",
     "export"
   ],
-  "description": "Export pointclouds project and prepares downloadable tar archive",
+  "description": "Export point clouds project and prepares downloadable tar archive",
   "docker_image": "supervisely/base-py-sdk:6.73.577",
   "instance_version": "6.16.19",
   "main_script": "src/main.py",
