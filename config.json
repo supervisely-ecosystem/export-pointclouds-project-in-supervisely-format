@@ -1,5 +1,5 @@
 {
-  "name": "Export pointclouds project in Supervisely format",
+  "name": "Export Point Clouds Project in Supervisely Format",
   "type": "app",
   "categories": [
     "pointclouds",
