@@ -24,16 +24,19 @@ def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, cont
 
     upload_progress = []
 
-    def _print_progress(monitor, upload_progress):
+    def _print_progress(delta, upload_progress):
         if len(upload_progress) == 0:
             upload_progress.append(sly.Progress(message="Upload {!r}".format(archive_name),
-                                                total_cnt=monitor.len,
+                                                total_cnt=os.path.getsize(result_archive),
                                                 ext_logger=app_logger,
                                                 is_size=True))
-        upload_progress[0].set_current_value(monitor.bytes_read)
+        # multipart-encoded bytes transferred are slightly larger than the raw file size
+        # (field headers/boundaries), so clamp to avoid current exceeding total
+        progress = upload_progress[0]
+        progress.iters_done_report(min(delta, max(progress.total - progress.current, 0)))
 
     file_info = api.file.upload(g.TEAM_ID, result_archive, remote_archive_path,
-                                lambda m: _print_progress(m, upload_progress))
+                                lambda delta: _print_progress(delta, upload_progress))
     app_logger.info("Uploaded to Team-Files: {!r}".format(file_info.storage_path))
     api.task.set_output_archive(task_id, file_info.id, archive_name, file_url=file_info.storage_path)
     w.workflow_output(api, file_info)
