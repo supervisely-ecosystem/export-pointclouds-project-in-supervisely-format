@@ -1,0 +1,16 @@
+# Tool configuration only. Runtime dependencies live in dev_requirements.txt
+# (the platform's release CI forbids requirements.txt).
+
+[tool.ruff]
+line-length = 120
+target-version = "py314"  # runtime: supervisely/base-py-sdk-hardened (Python 3.14)
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "BLE"]
+# workflow lineage is best effort: a failure there must not fail a finished export
+per-file-ignores = { "src/**" = ["BLE001"] }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::SyntaxWarning", "ignore::DeprecationWarning"]

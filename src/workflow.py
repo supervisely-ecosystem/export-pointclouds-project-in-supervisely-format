@@ -1,13 +1,14 @@
-# This module contains the functions that are used to configure the input and output of the workflow for the current app.
+"""Workflow lineage: the input project and the output archive of this app."""
 
 import supervisely as sly
-from typing import Union
 
-def workflow_input(api: sly.Api, project_id: Union[int, str]):    
-        api.app.workflow.add_input_project(int(project_id))
-        sly.logger.debug(f"Workflow: Input project - {project_id}")
 
-def workflow_output(api: sly.Api, file: Union[int, sly.api.file_api.FileInfo]):
+def workflow_input(api: sly.Api, project_id: int | str) -> None:
+    api.app.workflow.add_input_project(int(project_id))
+    sly.logger.debug(f"Workflow: Input project - {project_id}")
+
+
+def workflow_output(api: sly.Api, file: int | sly.api.file_api.FileInfo) -> None:
     try:
         if isinstance(file, int):
             file = api.file.get_info_by_id(file)
