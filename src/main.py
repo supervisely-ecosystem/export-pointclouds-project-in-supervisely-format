@@ -1,56 +1,71 @@
+"""Export a point cloud project in Supervisely format: headless task from "Download as"."""
+
 import os
+
 import supervisely as sly
-import globals as g
+from dotenv import load_dotenv
+
 import workflow as w
+from settings import Settings
 
-@g.my_app.callback("export-pointclouds-project-in-supervisely-format")
-@sly.timeit
-def export_pointclouds_project_in_supervisely_format(api: sly.Api, task_id, context, state, app_logger):
-    project = api.project.get_info_by_id(g.PROJECT_ID)
-    project_name = project.name
-    w.workflow_input(api, project.id)
-    result_dir = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME, project_name)
-    result_archive_path = os.path.join(g.my_app.data_dir, g.RESULT_DIR_NAME)
-    archive_name = f"{g.TASK_ID}_{g.PROJECT_ID}_{project_name}.tar"
-    result_archive = os.path.join(g.my_app.data_dir, archive_name)
-    remote_archive_path = os.path.join(
-        sly.team_files.RECOMMENDED_EXPORT_PATH, f"{g.RESULT_DIR_NAME}/{archive_name}")
+RESULT_DIR_NAME = "Export pointclouds project in Supervisely format"
 
-    sly.download_pointcloud_project(api=api, project_id=g.PROJECT_ID, dest_dir=result_dir, dataset_ids=None,
-                               download_items=g.DOWNLOAD_ITEMS, batch_size=1, log_progress=True)
 
-    sly.fs.archive_directory(result_archive_path, result_archive)
-    app_logger.info("Result directory is archived")
+def export_project(api: sly.Api, project, settings: Settings, work_dir: str) -> str:
+    """Download the project to `<work_dir>/<RESULT_DIR_NAME>/<project name>/`; return the parent folder.
 
-    upload_progress = []
+    The parent folder is what gets archived, so the archive's top folder is the project name.
+    """
+    root = os.path.join(work_dir, RESULT_DIR_NAME)
+    sly.fs.mkdir(root, remove_content_if_exists=True)
+    sly.download_pointcloud_project(
+        api=api,
+        project_id=project.id,
+        dest_dir=os.path.join(root, project.name),
+        dataset_ids=None,  # every dataset, nested ones included
+        download_items=settings.download_items,
+        batch_size=1,
+        log_progress=True,
+    )
+    return root
 
-    def _print_progress(delta, upload_progress):
-        if len(upload_progress) == 0:
-            upload_progress.append(sly.Progress(message="Upload {!r}".format(archive_name),
-                                                total_cnt=os.path.getsize(result_archive),
-                                                ext_logger=app_logger,
-                                                is_size=True))
-        # multipart-encoded bytes transferred are slightly larger than the raw file size
-        # (field headers/boundaries), so clamp to avoid current exceeding total
-        progress = upload_progress[0]
-        progress.iters_done_report(min(delta, max(progress.total - progress.current, 0)))
 
-    file_info = api.file.upload(g.TEAM_ID, result_archive, remote_archive_path,
-                                lambda delta: _print_progress(delta, upload_progress))
-    app_logger.info("Uploaded to Team-Files: {!r}".format(file_info.storage_path))
+def upload_archive(api: sly.Api, team_id: int, task_id: int, project, root: str, work_dir: str):
+    """Archive `root` as `<task>_<project id>_<project name>.tar` into Team Files and set it as task output."""
+    archive_name = f"{task_id}_{project.id}_{project.name}.tar"
+    local_archive = os.path.join(work_dir, archive_name)
+    sly.fs.archive_directory(root, local_archive)
+    sly.logger.info("Result directory is archived")
+
+    remote_archive = os.path.join(sly.team_files.RECOMMENDED_EXPORT_PATH, RESULT_DIR_NAME, archive_name)
+    progress = sly.tqdm_sly(
+        desc=f"Upload {archive_name!r}", total=os.path.getsize(local_archive), unit="B", unit_scale=True
+    )
+    file_info = api.file.upload(team_id, local_archive, remote_archive, progress_cb=progress)
+    sly.logger.info(f"Uploaded to Team-Files: {file_info.storage_path!r}")
     api.task.set_output_archive(task_id, file_info.id, archive_name, file_url=file_info.storage_path)
+    return file_info
+
+
+def main() -> None:
+    if not sly.is_production():
+        load_dotenv("local.env")
+        load_dotenv(os.path.expanduser("~/supervisely.env"))
+
+    settings = Settings.from_env()
+    team_id = sly.env.team_id()
+    task_id = sly.env.task_id()
+    project_id = sly.env.project_id()
+    sly.logger.info(f"Team: {team_id}, project: {project_id}, settings: {settings}")
+    api = sly.Api.from_env()
+
+    project = api.project.get_info_by_id(project_id)
+    w.workflow_input(api, project.id)
+    work_dir = sly.app.get_data_dir()
+    root = export_project(api, project, settings, work_dir)
+    file_info = upload_archive(api, team_id, task_id, project, root, work_dir)
     w.workflow_output(api, file_info)
-    g.my_app.stop()
 
 
-def main():
-    sly.logger.info("Script arguments", extra={
-        "TEAM_ID": g.TEAM_ID,
-        "WORKSPACE_ID": g.WORKSPACE_ID,
-        "modal.state.slyProjectId": g.PROJECT_ID
-    })
-    g.my_app.run(initial_events=[{"command": "export-pointclouds-project-in-supervisely-format"}])
-
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     sly.main_wrapper("main", main)

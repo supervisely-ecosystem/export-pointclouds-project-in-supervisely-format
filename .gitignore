@@ -6,4 +6,6 @@ src/debug
 __pycache__
 *.pyc
 *.pyo
-*.pyd
+*.pyd.venv/
+.pytest_cache/
+debug/
